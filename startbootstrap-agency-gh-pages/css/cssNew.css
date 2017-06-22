@@ -1,0 +1,40 @@
+#services {
+    background-color: #eeeeee;
+}
+
+header {
+    background-image: url('../img/cinema.jpg');
+}
+
+header .intro-text .intro-heading {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*text-transform: uppercase;*/
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 30px;
+    margin-bottom: 25px;
+    margin-left: 80px;
+}
+
+header .intro-text .intro-lead-in {
+    color: #88ABC8;
+    margin-top: -40px;
+}
+
+.btn-xl {
+    margin-top: 80px;
+}
+
+h2 {
+    color: #88ABC8;
+}
+
+.navbar-custom .navbar-brand {
+    color: #88ABC8;
+}
+
+section#contact {
+    background-color: #88ABC8;
+    background-position: center;
+    background-repeat: no-repeat;
+}
