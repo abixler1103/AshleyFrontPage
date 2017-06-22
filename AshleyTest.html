@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Movie Me</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--content here-->
+    <div class="container">
+        <!-- Page Content goes here -->
+        <div class="row" id="visual">
+            <div class="col s5" id="posterPic">
+                <div class="card" style="width: 450px; margin-left: 150px; margin-bottom: 10px; margin-top: 40px; display: inline-block;">
+                    <div class="card-image waves-effect waves-block waves-light" style="margin-left: 55px;">
+                        <h4 class="movie-name"></h4><span id="rating"></span>
+                        <img class="artwork" src="https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/4b/767d5973efb75efb2dfed62cf79c9728_500x735.jpg?t=1491878472" style="width: 327px; height: 427px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">Click for more info</i></span>
+                        <p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4" id="movie-title"><strong>Lion </strong><span id="rating"><small>PG-13</small></span><i class="material-icons right">close</i></span>
+                        <br>
+                        <p id="plot">In LION, five-year-old Saroo gets lost on a train travelling away from his home and family. Frightened and bewildered, he ends up thousands of miles away, in chaotic Kolkata. Somehow he survives living on the streets, escaping all sorts of terrors and close calls in the process, before ending up in an orphanage that is itself not exactly a safe haven. Eventually Saroo is adopted by an Australian couple, and finds love and security as he grows up in Hobart. Not wanting to hurt his adoptive parents’ feelings, he suppresses his past, his emotional need for reunification, and his hope of ever finding his lost mother and brother. But a chance meeting with some fellow Indians reawakens his buried yearning. With just a small store of memories, and the help of a new technology called Google Earth, Saroo embarks on one of the greatest needle-in-a-haystack quests of modern times.</p>
+                        <br>
+                        <p>Director:</p>
+                        <p id="director-info"></p>
+                        <p>Screenwriters: <span id="screenwriter-info">Luke Davies</span></p>
+                        <p>Producers: <span id="producer-info">Iain Canning,
+Angie Fielder</span></p>
+                        <p>Actors: <span id="actor-info">Dev Patel,
+                                                Rooney Mara, Nicole Kidman, David Wenham, Sunny Pawar, Abhishek Bharate, Priyanka Bose, Tannishtha Chatterjee, Nawazuddin Siddiqui, Deepti Naval, Divian Ladwa, Sachin Joab, Pallavi Sharda, Arka Das</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s2"></div>
+            <div class="col s5" id="video">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe class="embed-responsive-item" id="trailer" src="https://www.youtube.com/embed/Sw11C7rF3Ws" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+
+</html>

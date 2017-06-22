@@ -7,6 +7,7 @@ var movieChoice = "";
 var movieInfo = "";
 var btnselection = "";
 var netflixResponse = [];
+var moviePicked = "";
 
 $(document).ready(function() {
 
@@ -101,12 +102,6 @@ $(document).ready(function() {
             var embedCode = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoId + "\" frameborder=\"0\" allowfullscreen></iframe>";
 
             $('#list-of-movie-trailers').html(embedCode);
-        });
-
-        var database = firebase.database();
-
-        database.ref().push({
-            movieName: movieChoice
         });
     }
 
@@ -216,4 +211,15 @@ $(document).ready(function() {
 
         localStorage.removeItem("movieURL")
     }
+    var database = firebase.database();
+
+    database.ref().push({
+        movieName: movieChoice
+    });
+    database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(childResponse, prevChildKey) {
+        moviePicked = childResponse.val().movieName;
+        console.log(moviePicked);
+        $("#previous").append("<tr><td>" + moviePicked + "</td></td");
+    });
+
 });
