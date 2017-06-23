@@ -22,7 +22,7 @@ header .intro-text .intro-lead-in {
 }
 
 .btn-xl {
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 h2 {
@@ -41,4 +41,28 @@ section#contact {
 
 #searches {
     margin-top: 20px;
+}
+
+#aboutUs {
+    font-size: 20px;
+}
+
+#about {
+    padding-bottom: 50px;
+}
+
+#aboutUs {
+    color: gray;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+#bees {
+    color: gray;
+    font-size: 20px;
+}
+
+#youtalk {
+    color: #fed136;
+    font-size: 24px;
 }

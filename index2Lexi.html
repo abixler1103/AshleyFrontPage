@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>FlixGenie</title>
+    <title>Movie Me</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Link to javascript commented out due to console.log errors until all code is merged-->
@@ -14,15 +14,17 @@
     <!--Link to first index.html -->
     <script type="text/html" src="FlixGenie/index.html"></script>
     <!--Link to css stylesheet -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
     <!--Compiled and minified CSS for Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Compiled and minified JavaScript for Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Compiled and minified CSS for Materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="css/Lexi.css" rel="stylesheet">
+    <link href="css/agency.min.css" rel="stylesheet">
     <!-- Compiled and minified JavaScript for Materialize-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script src="js/taylorsJS.js"></script>
@@ -33,7 +35,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper" style="background-color: #222222;">
-                <a href="index.html" class="brand-logo center" style="color: #fed136;">Movie Me</a>
+                <a href="index.html" class="brand-logo center" style="color: #fed136;" di>Movie Me</a>
             </div>
         </nav>
     </div>
@@ -41,21 +43,29 @@
         <div class="col s4"> -->
     <div class="card" style="width: 450px; margin-left: 150px; margin-bottom: 10px; margin-top: 40px; display: inline-block;">
         <div class="card-image waves-effect waves-block waves-light" style="margin-left: 55px;">
-            <h4 class="movie-name"><strong>Lion </strong><span id="rating"><small>PG-13</small></span></h4>
-            <img class="artwork" src="https://d32qys9a6wm9no.cloudfront.net/images/movies/poster/4b/767d5973efb75efb2dfed62cf79c9728_500x735.jpg?t=1491878472" style="width: 327px; height: 427px;">
+            <div class="movie-info">
+                <h3 class="movie-name"></h3>
+                <span class="rating"></span>
+            </div>
+            <img class="artwork" style="width: 327px; height: 427px;">
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">Click for more info</i></span>
             <p>
         </div>
         <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4" id="movie-title"><strong>Lion </strong><span id="rating"><small>PG-13</small></span><i class="material-icons right">close</i></span>
+            <span class="card-title grey-text text-darken-4">
+            <i class="material-icons right">close</i>
+            </span>
+            </span>
             <br>
-            <p id="plot">In LION, five-year-old Saroo gets lost on a train travelling away from his home and family. Frightened and bewildered, he ends up thousands of miles away, in chaotic Kolkata. Somehow he survives living on the streets, escaping all sorts of terrors and close calls in the process, before ending up in an orphanage that is itself not exactly a safe haven. Eventually Saroo is adopted by an Australian couple, and finds love and security as he grows up in Hobart. Not wanting to hurt his adoptive parents’ feelings, he suppresses his past, his emotional need for reunification, and his hope of ever finding his lost mother and brother. But a chance meeting with some fellow Indians reawakens his buried yearning. With just a small store of memories, and the help of a new technology called Google Earth, Saroo embarks on one of the greatest needle-in-a-haystack quests of modern times.</p>
             <br>
-            <p>Director: <span id="director-info">Garth Davis</span></p>
-            <p>Actors: <span id="actor-info">Dev Patel,
-                                                Rooney Mara, Nicole Kidman, David Wenham, Sunny Pawar, Abhishek Bharate, Priyanka Bose, Tannishtha Chatterjee, Nawazuddin Siddiqui, Deepti Naval, Divian Ladwa, Sachin Joab, Pallavi Sharda, Arka Das</span></p>
+            <br>
+            <br>
+            <p id="plot"></p>
+            <br>
+            <p id="director-info"></p>
+            <p id="actor-info"></p>
         </div>
     </div>
     </div>
@@ -63,8 +73,7 @@
     <!-- <div class="col s4"> -->
     <div class="well" style="width: 600px; margin-left: 100px; display: inline-block;">
         <!-- 4:3 aspect ratio -->
-        <div class="embed-responsive embed-responsive-4by3">
-            <iframe class="embed-responsive-item" id="trailer" src="https://www.youtube.com/embed/Sw11C7rF3Ws" frameborder="0" allowfullscreen></iframe>
+        <div class="embed-responsive embed-responsive-4by3" id="trailer">
         </div>
     </div>
     </div>
@@ -80,13 +89,13 @@
                         <thead>
                             <tr>
                                 <th>Rotten Tomatoes</th>
-                                <th>IMBD</th>
+                                <th>IMDB</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td id="rotten-score" style="font-size: 30px;">86%</td>
-                                <td id="imbd-score" style="font-size: 30px;">8.1/10</td>
+                                <td id="rotten-score" style="font-size: 30px;"></td>
+                                <td id="imdb-score" style="font-size: 30px;"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -109,6 +118,33 @@
     </div>
     </div>
     </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; MovieMe 2017</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

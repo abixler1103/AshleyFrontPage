@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>Movie Me</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,7 +98,7 @@
             <div class="row text-center">
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4">
-                    <a href="index2Lexi.html" class="btn btn-xl">Movie Me</a>
+                    <a id="movieMeBtn" href="index2Lexi.html" class="btn btn-xl" style="display: none">Movie Me</a>
                 </div>
                 <div class="col-lg-4"></div>
             </div>
@@ -107,7 +108,7 @@
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
                         <div class="panel-heading" id="lastSearch">
-                            <h3 class="panel-title">Last 10 Searches</h3>
+                            <h3 class="panel-title">Last 10 MovieMe Movies</h3>
                         </div>
                         <table class="table" id="previous">
                             <tr>
@@ -249,7 +250,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted" id="aboutUs">What should we watch tonight? Will it be any good? 15 minutes in and...<br><br>Movie Me is a web-based application where you put in your favorite actor and pick a genre and we will spit out a random movie for you to watch. Along with the movie, we provide you with a trailer from Youtube, a summary, and ratings from Rotten Tomatoes and IMDB. If the ratings aren’t up to your standards, you can roll again, in hopes for a better movie!</h3>
                 </div>
             </div>
             <!-- <div class="row ">
@@ -329,66 +330,66 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted" id="bees">They're the bees knees.</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-3">
                     <div class="team-member">
-                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt=" ">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
+                        <img src="img/team/Ashley.jpeg" class="img-responsive img-circle" alt=" ">
+                        <h4>Ashley Bixler</h4>
+                        <p class="text-muted">Template Master</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="# "><i class="fa fa-twitter"></i></a>
+                            <li><a href="https://www.github.com/abixler1103" target="_blank"><i class="fa fa-github"></i></a>
                             </li>
-                            <li><a href="# "><i class="fa fa-facebook"></i></a>
+                            <li><a href="mailto:ashley.e.bixler@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
                             </li>
-                            <li><a href="# "><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://www.linkedin.com/in/ashleybixler/" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="team-member">
-                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt=" ">
-                        <h4>Larry Parker</h4>
-                        <p class="text-muted">Lead Marketer</p>
+                        <img src="img/team/taylor9.jpeg" class="img-responsive img-circle" alt=" ">
+                        <h4>Taylor Clark</h4>
+                        <p class="text-muted">API Ninja</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="https://www.github.com/Tictac0723" target="_blank"><i class="fa fa-github"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="mailto:taylorclark0723@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://www.linkedin.com/in/taylor-clark-2b4328a3/" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="team-member">
-                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt=" ">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <img src="img/team/lexi.jpeg" class="img-responsive img-circle" alt=" ">
+                        <h4>Lexi Majoue</h4>
+                        <p class="text-muted">Div Guru</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="https://github.com/lexluther2125" target="_blank"><i class="fa fa-github"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="mailto:leximajoue@yahoo.com" target="_blank"><i class="fa fa-envelope"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://www.linkedin.com/in/lexi-majoue-9a8bbbab" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="team-member">
-                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt=" ">
-                        <h4>Diana Pertersen</h4>
-                        <p class="text-muted">Lead Developer</p>
+                        <img src="img/team/Mad.jpeg" class="img-responsive img-circle" alt=" ">
+                        <h4>Madeline De Roux</h4>
+                        <p class="text-muted">Javascript Wizard</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a href="https://github.com/mderoux1" target="_blank"><i class="fa fa-github"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="mailto:deroux705@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="https://www.linkedin.com/in/madeleine-d-7a0642141/" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -396,7 +397,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    <p class="large text-muted">The Movie Me team is committed to giving you the best movie night possible! Stop aruging and get your popcorn ready for an amazing movie night!</p>
                 </div>
             </div>
         </div>
@@ -434,7 +435,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted" id="youtalk">"You talkin' to me?"</h3>
                 </div>
             </div>
             <div class="row">
@@ -464,7 +465,9 @@
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
+                                <a href="#">
+                                    <button type="submit" class="btn btn-xl">Send Message</button>
+                                </a>
                             </div>
                         </div>
                     </form>

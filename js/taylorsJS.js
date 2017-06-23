@@ -22,6 +22,9 @@ $(document).ready(function() {
         messagingSenderId: "243336765650"
     };
     firebase.initializeApp(config);
+    var database = firebase.database();
+
+    grabSearch(movieChoice);
 
     $("#clickBtn").on("click", function() {
         event.preventDefault();
@@ -54,6 +57,7 @@ $(document).ready(function() {
                 }
             });
         }
+
     });
 
     function GetChoice(category) {
@@ -68,7 +72,7 @@ $(document).ready(function() {
     }
 
     //Find movie by url
-    function GetMovie(url) {
+    function GetMovie(url, movie) {
         $.ajax({
             url: url,
             method: "GET"
@@ -77,19 +81,24 @@ $(document).ready(function() {
 
             if (response.Response !== 'False') {
 
-                $("#actor-info").html(response.Actors);
-                $("#plot").html(response.Plot);
-                $("#artwork").attr("src", response.Poster);
-                $("#rating").html(response.Rated);
-                $("#movie-name").html(response.Title);
-                $("#director-info").html(response.Director);
-                $("#ratings").append(response.Ratings[0].Value);
-                $("#ratings").append(response.Ratings[1].Value);
+                var dib = $("")
+
+                $("#actor-info").html("Actors: " + response.Actors);
+                $("#plot").html("Plot: " + response.Plot);
+                $(".artwork").attr("src", response.Poster);
+                $(".rating").html("Rated: " + response.Rated);
+                $(".movie-name").html(response.Title);
+
+                $("#director-info").html("Director: " + response.Director);
+                $("#rotten-score").html(response.Ratings[1].Value);
+                $("#imdb-score").html(response.Ratings[0].Value);
             } else {
                 $("#error").html("This movie information is unavailable! We have generated a trailer for your viewing pleasure!");
             }
             //alert the user if you want
         });
+
+        console.log(movieChoice);
 
         $.ajax({
             url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=" + movieChoice + " trailer" + "&key=AIzaSyB8g6i8y1SPFbIcJw9flTwk7VEFXYWA5MY",
@@ -97,11 +106,14 @@ $(document).ready(function() {
         }).done(function(response) {
             console.log(response);
 
-            var videoId = response.items[0].id.videoId;
+            var videoId = response.items[1].id.videoId;
+
 
             var embedCode = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoId + "\" frameborder=\"0\" allowfullscreen></iframe>";
 
-            $('#list-of-movie-trailers').html(embedCode);
+            console.log(embedCode);
+
+            $('#trailer').html(embedCode);
         });
     }
 
@@ -110,7 +122,7 @@ $(document).ready(function() {
 
         // Deleting the movies prior to adding new movies
         // (this is necessary otherwise you will have repeat buttons)
-        $("#clickBtn").empty();
+        //$("#clickBtn").empty();
 
         // Looping through the array of movies
         for (var i = 0; i < sortedList.length; i++) {
@@ -138,7 +150,7 @@ $(document).ready(function() {
                 case "Romantic Movies":
                     sortedList[i] = "Romantic"
                     break;
-                case "Sci-fi & Fantasy":
+                case "Sci-Fi & Fantasy":
                     sortedList[i] = "Fantasy"
                     break;
                 case "Horror Movies":
@@ -177,8 +189,12 @@ $(document).ready(function() {
 
                 //SESSION STORAGE THE URL
                 localStorage.setItem("movieURL", selectedMovieUrl);
+
+
                 // now lets really go get that shit
-                //GetMovie(selectedMovieUrl);
+                GetMovie(selectedMovieUrl);
+
+                $("#movieMeBtn").show();
             });
 
         }
@@ -193,33 +209,55 @@ $(document).ready(function() {
 
         movieChoice = randomMovie.show_title;
 
-        movieInfo = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=40e9cece";
+        var removeSpaces = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=40e9cece";
+
+        sendSearchDB(movieChoice);
+
+        //SESSION STORAGE THE URL
+        localStorage.setItem("movie", movieChoice);
+
+        movieInfo = encodeURI(removeSpaces);
 
         return movieInfo;
-    }
 
+    }
     //
     function GrabUrlFromStorage() {
 
         var movieUrl = localStorage.getItem("movieURL");
+        movieChoice = localStorage.getItem("movie");
 
+        console.log(movieChoice);
 
         if (movieUrl !== null && typeof movieUrl !== "undefined") {
             // this where your get movie call should go
-            console.log(movieUrl);
+            GetMovie(movieUrl);
         }
 
-        localStorage.removeItem("movieURL")
+        localStorage.removeItem("movieURL");
+        //localStorage.removeItem("movie");
     }
-    var database = firebase.database();
 
-    database.ref().push({
-        movieName: movieChoice
-    });
-    database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(childResponse, prevChildKey) {
-        moviePicked = childResponse.val().movieName;
-        console.log(moviePicked);
-        $("#previous").append("<tr><td>" + moviePicked + "</td></td");
-    });
+    //firebase call for last searches
+    function sendSearchDB(selection) {
+
+
+        console.log(selection);
+
+        database.ref().push({
+            movieName: selection
+        });
+    }
+
+    function grabSearch() {
+
+        database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(childResponse, prevChildKey) {
+            console.log(childResponse);
+
+            moviePicked = childResponse.val().movieName;
+            console.log(moviePicked);
+            $("#previous").prepend("<tr><td>" + moviePicked + "</td></td");
+        });
+    }
 
 });
